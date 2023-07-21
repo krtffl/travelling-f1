@@ -3,36 +3,26 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 */package cmd
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
-
-	"github.com/krtffl/travelling-f1/pkg/distance"
-	"github.com/krtffl/travelling-f1/pkg/ergast"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "travelling-f1",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Short: "formula 1 season calendar visualization and optimization",
+	Long: `Travelling F1 is a CLI application written in Go for F1 fanatics.
+Visualize the available season calendars and perform different computations
+to reschedule the desired season in a way such that the total distance travelled
+during the season is less than the actual schedule.
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Obtain the most optimal schedule, or add some constraints to design your own
+calendar.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	Run: func(cmd *cobra.Command, args []string) {
-		season := ergast.GetSeason(2023)
-		fmt.Println("season", season)
-		fmt.Println(
-			"distance first two",
-			distance.DistanceBetweenTwoRaces(season.Races[0], season.Races[1]),
-		)
-		fmt.Println("total", distance.SeasonDistance(season.Races))
-	},
+	// Run: func(cmd *cobra.Command, args []string) {
+	// },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
